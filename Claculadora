@@ -1,0 +1,132 @@
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+float soma(float s1, float s2) {   //função da soma
+  float resultado;
+  resultado = s1 + s2;
+  return (resultado);
+}
+
+float subtra(float sub1, float sub2) {    //funcão da subtaração
+  float resultado;
+  resultado = sub1 - sub2;
+  return (resultado);
+}
+
+float multi(float m1, float m2) {     // função da multiplicação
+  float resultado;
+  resultado = m1 * m2;
+  return (resultado);
+}
+
+float divi(float d1, float d2) {   // função da divisão
+  float resultado;
+  if (d1 == 0 && d2 == 0) {
+    printf("Nao é possivel dividir por zero!!!");
+  } else {
+    resultado = d1 / d2;
+  }
+  return (resultado);
+}
+
+float raiz(float r1) {      // função da raiz quadrada
+  float resultado;
+  resultado = r1 * r1;
+  return (resultado);
+}
+
+float potencia(float base, float exp) {   // função da potencia
+  float resultado;
+  if (exp == 0)
+    return 1;
+  else if (exp == 1)
+    return base;
+
+  return resultado = base * potencia(base, exp - 1);
+}
+
+int main(void) {
+  float num1, num2, raizqua, bas, expo, resultado;   // main e variaveis
+  int op;
+
+  // Dados do criador e Menu para o usuario
+  printf("\nGustavo Pochmann Paim\nAnálise e Desenvolvimento de "
+         "Sistemas\nUniversidade LaSalle\n201120633\n");
+  printf("\n1 - Adição (+)\n");
+  printf("2 - Subtração (-)\n");
+  printf("3 - Multiplicação (*)\n");
+  printf("4 - Divisão (/)\n");
+  printf("5 - Raiz Quadrada (r)\n");
+  printf("6 - Potenciação (^)\n");
+  printf("\nEscolha a operação a ser realizada:\n");
+
+  scanf("%d", &op);
+
+  setlocale(LC_ALL, "Portuguese");//para fazer a acentuação correta
+
+  switch (op) {          // casos
+  case 1:
+    printf("\nA operação escolhida foi Adição\n");
+    printf("\nInsira o primeiro numero:\n");
+    scanf("%f", &num1);
+    printf("\nInsira o segundo numero:\n");
+    scanf("%f", &num2);
+    resultado = soma(num1, num2);
+    printf("\nO resultado da operação é: %f\n", resultado);
+    break;
+
+  case 2:
+    printf("\nA operação escolhida foi Subtração\n");
+    printf("\nInsira o primeiro numero:\n");
+    scanf("%f", &num1);
+    printf("\nInsira o segundo numero:\n");
+    scanf("%f", &num2);
+    resultado = subtra(num1, num2);
+    printf("\nO resultado da operação é: %f\n", resultado);
+    break;
+
+  case 3:
+    printf("\nA operação escolhida foi Multiplicação\n");
+    printf("\nInsira o primeiro numero:\n");
+    scanf("%f", &num1);
+    printf("\nInsira o segundo numero:\n");
+    scanf("%f", &num2);
+    resultado = multi(num1, num2);
+    printf("\nO resultado da operação é: %f\n", resultado);
+    break;
+
+  case 4:
+    printf("\nA operação escolhida foi Divisão\n");
+    printf("\nInsira o primeiro numero:\n");
+    scanf("%f", &num1);
+    printf("\nInsira o segundo numero:\n");
+    scanf("%f", &num2);
+    resultado = divi(num1, num2);
+    printf("\nO resultado da operação é: %f\n", resultado);
+    break;
+
+  case 5:
+    printf("\nA operação escolhida foi Raiz Quadrada\n");
+    printf("\nInsira o numero a ter sua raiz quadrada calculada:\n");
+    scanf("%f", &raizqua);
+    resultado = raiz(raizqua);
+    printf("\nO resultado da operação é: %f\n", resultado);
+    break;
+
+  case 6:
+    printf("\nA operação escolhida foi Potenciação\n");
+    printf("\nInsira a base:\n");
+    scanf("%f", &bas);
+    printf("\nInsira o expoente:\n");
+    scanf("%f", &expo);
+    resultado = potencia(bas, expo);
+    printf("\nO resultado da operação é: %f\n", resultado);
+    break;
+
+  default:
+    printf("Opção Inválida\n");
+  }
+
+  return 0;
+}
